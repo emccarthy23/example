@@ -1,10 +1,10 @@
-#Adding change to try to get Travis to work
-# example
+
+# HW 1
 
 [![Build
 Status](https://travis-ci.org/emccarthy23/example.svg?branch=master)](https://travis-ci.org/emccarthy23/example)
 
-Example python project with testing.
+HW 1 for BMI 203
 
 ## usage
 
