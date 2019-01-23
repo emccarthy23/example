@@ -53,10 +53,8 @@ def quicksort(x):
     if (len(x) < 2):
         return x
     else:
-        if x[0] > x[partition(x)]:
-          pivot = partition(x)
+        pivot=partition(x)
+	if x[0] > x[pivot]:
           x[0], x[pivot] = x[pivot], x[0]
-        smaller = quicksort(x[:partition(x)])
-        larger = quicksort(x[(partition(x)+1):])
-        return smaller + [x[partition(x)]] + larger
+        return quicksort(x[:pivot]) + [x[pivot]] + quicksort(x[(pivot+1):])
 
