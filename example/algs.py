@@ -1,5 +1,14 @@
 import numpy as np
 
+def only_integers(x):
+  try:
+    test = [i == int(i) for i in x]
+    if sum(test)!=len(x):
+      return "Please provide a list made ONLY of integers."
+  except ValueError:
+    return 'Please provide a list made ONLY of integers.'
+  return x
+
 def bubblesort(x):
   """
   Describe how you are sorting `x`:
@@ -7,12 +16,6 @@ def bubblesort(x):
   i and i+1 flip the order if i+1 is smaller than i.
   Iterate over the list pairwise until the list is sorted.
   """
-  try: 
-    test = [i == int(i) for i in x]
-    if sum(test)!=len(x):
-      return "Please provide a list made ONLY of integers."
-  except ValueError:
-    return 'Please provide a list made ONLY of integers.'
   if (len(x) > 1):
     j=1
     while j!=0:
@@ -31,12 +34,6 @@ def quicksort(x):
     Choose a pivot. Arrange all the elements so the larger elements are in front of the pivot
     and the smaller elements are behind the pivot. Then recursively apply the funciton on the sublists.
     """
-    try: 
-        test = [i == int(i) for i in x]
-        if sum(test)!=len(x):
-            return "Please provide a list made ONLY of integers."
-    except ValueError:
-        return 'Please provide a list made ONLY of integers.'
     quicksort_recursive(x,0,len(x)-1)
     return x
     
