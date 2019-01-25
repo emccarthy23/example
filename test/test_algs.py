@@ -1,4 +1,4 @@
-mport numpy as np
+import numpy as np
 from example import algs
 
 def test_bubblesort():
