@@ -1,4 +1,5 @@
 import numpy as np
+
 def bubblesort(x):
   """
   Describe how you are sorting `x`:
@@ -24,18 +25,6 @@ def bubblesort(x):
   else:
     return x
 
-def partition(x):
-    lower_index=1
-    higher_index=len(x)-1
-    while higher_index > lower_index:
-        while (x[lower_index] <= x[0]) & ((lower_index+1)<len(x)):
-            lower_index = lower_index+1
-        while (x[higher_index] > x[0]) & ((higher_index-1) > -1):
-            higher_index = higher_index-1
-        if higher_index > lower_index:
-            x[higher_index],x[lower_index] = x[lower_index], x[higher_index]                                     
-    return higher_index
-    
 def quicksort(x):
     """
     Describe how you are sorting `x`
@@ -48,11 +37,36 @@ def quicksort(x):
             return "Please provide a list made ONLY of integers."
     except ValueError:
         return 'Please provide a list made ONLY of integers.'
-      
-    if (len(x) < 2):
-        return x
-    else:
-        pivot = partition(x)
-        if x[0] > x[pivot]:
-            x[0],x[pivot] = x[pivot], x[0]
-        return quicksort(x[:pivot]) + [x[pivot]] + quicksort(x[(pivot+1):])
+    quicksort_recursive(x,0,len(x)-1)
+    return x
+    
+
+
+def quicksort_recursive(x,low,high):
+    if high > low:
+
+        pivot = partition(x,low,high)
+        quicksort_recursive(x,low,pivot-1)
+        quicksort_recursive(x,pivot+1,high)
+
+        
+def partition(x,low,high):
+    
+    middle = x[low]
+    lower_index = low+1
+    higher_index = high
+    
+    while higher_index > lower_index:
+        
+        while lower_index < high and x[lower_index] <= middle:
+            lower_index = lower_index + 1
+            
+        while x[higher_index] >= middle and higher_index > low:
+            higher_index = higher_index - 1
+            
+        if higher_index > lower_index:
+            x[higher_index],x[lower_index] = x[lower_index],x[higher_index]
+            
+    x[low],x[higher_index] = x[higher_index],middle
+    
+    return higher_index
