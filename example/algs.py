@@ -53,7 +53,7 @@ def quicksort_recursive(x,low,high):
 def partition(x,low,high):
     
     middle = x[low]
-    lower_index = low+1
+    lower_index = low
     higher_index = high
     
     while higher_index > lower_index:
