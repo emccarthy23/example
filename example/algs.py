@@ -58,10 +58,10 @@ def partition(x,low,high):
     
     while higher_index > lower_index:
         
-        while lower_index < high and x[lower_index] <= middle:
+        while lower_index <= higher_index and x[lower_index] <= middle:
             lower_index = lower_index + 1
             
-        while x[higher_index] >= middle and higher_index > low:
+        while x[higher_index] >= middle and higher_index >= lower_index:
             higher_index = higher_index - 1
             
         if higher_index > lower_index:
